@@ -7,6 +7,7 @@ function getUser() {
 	} else {
 		user = Meteor.userId();
 	}
+	return user;
 }
 
 at = {
@@ -21,12 +22,15 @@ at = {
 }
 
 Router.onAfterAction(function auditRequests() {
+	console.log(this);
 	var method = this.method;
-	var url = this.url;
+	var url = this.request.url;
+	var path = this.route._path;
+	var template = this.router._layout.name;
 	var user = getUser();
 	console.log(method);
-	auditTrail({"event": method, "user": getUser(), "page": url});
-});
+	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template });
+}, {where: 'server'});
 
 auditTrail = function(obj) {
 	Audits.insert(obj);
