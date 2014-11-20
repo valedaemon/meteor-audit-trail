@@ -10,6 +10,11 @@ function getUser() {
 	return user;
 }
 
+function getTime() {
+        var now = new Date();
+        return now;
+}
+
 at = {
 	createLog: function(msg) {
 		var tmpl = UI._templateInstance();
@@ -17,7 +22,7 @@ at = {
 		var tmplName = tmpl.view.name;
 		console.log(tmpl);
 		console.log(tmplName);
-		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName});
+		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName, "time": getTime()});
 	}
 }
 
@@ -29,7 +34,7 @@ Router.onAfterAction(function auditRequests() {
 	var template = this.router._layout.name;
 	var user = getUser();
 	console.log(method);
-	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template });
+	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime()});
 }, {where: 'server'});
 
 auditTrail = function(obj) {
