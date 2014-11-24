@@ -1,0 +1,24 @@
+{
+  "isopack-1": {
+    "name": "valedaemon:audit-trail",
+    "summary": "A package devoted to providing audit methods to Meteor",
+    "version": "1.0.0+aecbecbdcb76d8cd957776d18ae8b55a41840dc5",
+    "earliestCompatibleVersion": "1.0.0",
+    "isTest": false,
+    "builds": [
+      {
+        "arch": "os",
+        "path": "os.json"
+      },
+      {
+        "arch": "web.browser",
+        "path": "web.browser.json"
+      },
+      {
+        "arch": "web.cordova",
+        "path": "web.cordova.json"
+      }
+    ],
+    "plugins": []
+  }
+}
