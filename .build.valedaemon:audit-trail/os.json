@@ -44,7 +44,7 @@
     {
       "type": "prelink",
       "file": "os/packages/valedaemon:audit-trail.js",
-      "length": 5230,
+      "length": 7898,
       "offset": 0,
       "servePath": "/packages/valedaemon:audit-trail.js",
       "sourceMap": "os/packages/valedaemon:audit-trail.js.map"

@@ -3,39 +3,39 @@
   "buildDependencies": {
     "os.json": {
       "files": {
-        "/home/vagrant/unified/packages/meteor-audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
-        "/home/vagrant/unified/packages/meteor-audit-trail/valedaemon:audit-trail.js": "27f9242381e0ad998caeda30b675a0c01782f5d6",
-        "/home/vagrant/unified/packages/meteor-audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
-        "/home/vagrant/unified/packages/meteor-audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
+        "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
       },
       "directories": []
     },
     "web.browser.json": {
       "files": {
-        "/home/vagrant/unified/packages/meteor-audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
-        "/home/vagrant/unified/packages/meteor-audit-trail/valedaemon:audit-trail.js": "27f9242381e0ad998caeda30b675a0c01782f5d6",
-        "/home/vagrant/unified/packages/meteor-audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
-        "/home/vagrant/unified/packages/meteor-audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
+        "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
       },
       "directories": []
     },
     "web.cordova.json": {
       "files": {
-        "/home/vagrant/unified/packages/meteor-audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
-        "/home/vagrant/unified/packages/meteor-audit-trail/valedaemon:audit-trail.js": "27f9242381e0ad998caeda30b675a0c01782f5d6",
-        "/home/vagrant/unified/packages/meteor-audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
-        "/home/vagrant/unified/packages/meteor-audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
+        "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
+        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
       },
       "directories": []
     }
   },
   "pluginDependencies": {
     "files": {
-      "/home/vagrant/unified/packages/meteor-audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed"
+      "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed"
     },
     "directories": []
   },
-  "source": "/home/vagrant/unified/packages/meteor-audit-trail",
+  "source": "/home/vagrant/unified/packages/valedameon:audit-trail",
   "buildTimeDirectDependencies": {
     "templating": "1.0.9",
     "iron:router": "1.0.1",
