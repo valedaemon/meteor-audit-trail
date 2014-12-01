@@ -17,9 +17,19 @@ function getTime() {
 
 at = {
 	createLog: function(msg) {
-		var tmpl = UI._templateInstance();
-		var uri = tmpl.firstNode.baseURI;
-		var tmplName = tmpl.view.name;
+		var tmpl,
+            uri,
+            tmplName;
+
+        if(UI && UI._templateInstance){
+            tmpl = UI._templateInstance();
+            uri = tmpl.firstNode.baseURI;
+            tmplName = tmpl.view.name;
+        } else {
+            tmpl = 'n/a';
+            uri = templName = 'custom server action'
+        }
+        
 		console.log(tmpl);
 		console.log(tmplName);
 		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName, "time": getTime()});
