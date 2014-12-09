@@ -29,7 +29,7 @@ at = {
             tmpl = 'n/a';
             uri = templName = 'custom server action'
         }
-        
+
 		console.log(tmpl);
 		console.log(tmplName);
 		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName, "time": getTime()});
