@@ -17,17 +17,15 @@ function getTime() {
 
 at = {
 	createLog: function(msg) {
-		var tmpl,
-            uri,
-            tmplName;
+		var tmpl, uri, tmplName;
 
-        if(UI && UI._templateInstance){
+        if (UI !== null && UI !== "undefined"){
             tmpl = UI._templateInstance();
             uri = tmpl.firstNode.baseURI;
             tmplName = tmpl.view.name;
         } else {
-            tmpl = 'n/a';
-            uri = templName = 'custom server action'
+            tmpl = 'N/A';
+            uri = templName = 'Custom server action'
         }
 
 		console.log(tmpl);
