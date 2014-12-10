@@ -19,7 +19,7 @@ at = {
 	createLog: function(msg) {
 		var tmpl, uri, tmplName;
 
-        if (UI !== null && UI !== "undefined"){
+        if (UI._templateInstance() !== null && UI._templateInstance() !== "undefined"){
             tmpl = UI._templateInstance();
             uri = tmpl.firstNode.baseURI;
             tmplName = tmpl.view.name;
