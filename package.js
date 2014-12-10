@@ -1,7 +1,7 @@
 Package.describe({
   name: 'valedaemon:audit-trail',
   summary: 'A package devoted to providing audit methods to Meteor',
-  version: '0.1.1',
+  version: '0.1.2',
   git: 'https://github.com/valedaemon/meteor-audit-trail'
 });
 
