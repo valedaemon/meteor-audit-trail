@@ -7,7 +7,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
-  api.use(['minimongo','mongo-livedata','iron:router','templating','accounts-base']);
+  api.use(['minimongo','mongo-livedata','iron:router@1.0.3','templating','accounts-base@1.1.2']);
   api.addFiles(['valedaemon:audit-trail.js','reporting.html','reporting.js','router.js']);
 
   if (api.export) {

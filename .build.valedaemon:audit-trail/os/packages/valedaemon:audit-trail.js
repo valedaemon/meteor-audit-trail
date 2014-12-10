@@ -25,30 +25,40 @@ function getTime() {                                                            
                                                                                                               // 17
 at = {                                                                                                        // 18
 	createLog: function(msg) {                                                                                   // 19
-		var tmpl = UI._templateInstance();                                                                          // 20
-		var uri = tmpl.firstNode.baseURI;                                                                           // 21
-		var tmplName = tmpl.view.name;                                                                              // 22
-		console.log(tmpl);                                                                                          // 23
-		console.log(tmplName);                                                                                      // 24
-		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName, "time": getTime()});        // 25
-	}                                                                                                            // 26
-}                                                                                                             // 27
-                                                                                                              // 28
-Router.onAfterAction(function auditRequests() {                                                               // 29
-	console.log(this);                                                                                           // 30
-	var method = this.method;                                                                                    // 31
-	var url = this.request.url;                                                                                  // 32
-	var path = this.route._path;                                                                                 // 33
-	var template = this.router._layout.name;                                                                     // 34
-	var user = getUser();                                                                                        // 35
-	console.log(method);                                                                                         // 36
-	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime()}); // 37
-}, {where: 'server'});                                                                                        // 38
-                                                                                                              // 39
-auditTrail = function(obj) {                                                                                  // 40
-	Audits.insert(obj);                                                                                          // 41
-}                                                                                                             // 42
-                                                                                                              // 43
+		var tmpl,                                                                                                   // 20
+            uri,                                                                                              // 21
+            tmplName;                                                                                         // 22
+                                                                                                              // 23
+        if(UI && UI._templateInstance){                                                                       // 24
+            tmpl = UI._templateInstance();                                                                    // 25
+            uri = tmpl.firstNode.baseURI;                                                                     // 26
+            tmplName = tmpl.view.name;                                                                        // 27
+        } else {                                                                                              // 28
+            tmpl = 'n/a';                                                                                     // 29
+            uri = templName = 'custom server action'                                                          // 30
+        }                                                                                                     // 31
+                                                                                                              // 32
+		console.log(tmpl);                                                                                          // 33
+		console.log(tmplName);                                                                                      // 34
+		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName, "time": getTime()});        // 35
+	}                                                                                                            // 36
+}                                                                                                             // 37
+                                                                                                              // 38
+Router.onAfterAction(function auditRequests() {                                                               // 39
+	console.log(this);                                                                                           // 40
+	var method = this.method;                                                                                    // 41
+	var url = this.request.url;                                                                                  // 42
+	var path = this.route._path;                                                                                 // 43
+	var template = this.router._layout.name;                                                                     // 44
+	var user = getUser();                                                                                        // 45
+	console.log(method);                                                                                         // 46
+	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime()}); // 47
+}, {where: 'server'});                                                                                        // 48
+                                                                                                              // 49
+auditTrail = function(obj) {                                                                                  // 50
+	Audits.insert(obj);                                                                                          // 51
+}                                                                                                             // 52
+                                                                                                              // 53
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

@@ -9,6 +9,9 @@
       "name": "Audits"
     },
     {
+      "name": "templName"
+    },
+    {
       "name": "auditTrail"
     }
   ],
@@ -25,7 +28,8 @@
       "constraint": "1.0.6"
     },
     {
-      "package": "iron:router"
+      "package": "iron:router",
+      "constraint": "1.0.3"
     },
     {
       "package": "templating",
@@ -40,7 +44,7 @@
     {
       "type": "prelink",
       "file": "web.browser/packages/valedaemon:audit-trail.js",
-      "length": 13790,
+      "length": 14950,
       "offset": 0,
       "servePath": "/packages/valedaemon:audit-trail.js",
       "sourceMap": "web.browser/packages/valedaemon:audit-trail.js.map"
