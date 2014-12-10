@@ -1,45 +1,55 @@
 (function () {
 
-//////////////////////////////////////////////////////////////////////////////////////
-//                                                                                  //
-// packages/valedaemon:audit-trail/valedaemon:audit-trail.js                        //
-//                                                                                  //
-//////////////////////////////////////////////////////////////////////////////////////
-                                                                                    //
-Audits = new Mongo.Collection('audits');                                            // 1
-                                                                                    // 2
-function getUser() {                                                                // 3
-	var user;                                                                          // 4
-	if (!Meteor.user()) {                                                              // 5
-		user = "guest";                                                                   // 6
-	} else {                                                                           // 7
-		user = Meteor.userId();                                                           // 8
-	}                                                                                  // 9
-}                                                                                   // 10
-                                                                                    // 11
-at = {                                                                              // 12
-	createLog: function(msg) {                                                         // 13
-		var tmpl = UI._templateInstance();                                                // 14
-		var uri = tmpl.firstNode.baseURI;                                                 // 15
-		var tmplName = tmpl.view.name;                                                    // 16
-		console.log(tmpl);                                                                // 17
-		console.log(tmplName);                                                            // 18
-		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName}); // 19
-	}                                                                                  // 20
-}                                                                                   // 21
-                                                                                    // 22
-Router.onAfterAction(function auditRequests() {                                     // 23
-	var method = this.method;                                                          // 24
-	var url = this.url;                                                                // 25
-	var user = getUser();                                                              // 26
-	console.log(method);                                                               // 27
-	auditTrail({"event": method, "user": getUser(), "page": url});                     // 28
-});                                                                                 // 29
-                                                                                    // 30
-auditTrail = function(obj) {                                                        // 31
-	Audits.insert(obj);                                                                // 32
-}                                                                                   // 33
-//////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                            //
+// packages/valedaemon:audit-trail/valedaemon:audit-trail.js                                                  //
+//                                                                                                            //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                              //
+Audits = new Mongo.Collection('audits');                                                                      // 1
+                                                                                                              // 2
+function getUser() {                                                                                          // 3
+	var user;                                                                                                    // 4
+	if (!Meteor.user()) {                                                                                        // 5
+		user = "guest";                                                                                             // 6
+	} else {                                                                                                     // 7
+		user = Meteor.userId();                                                                                     // 8
+	}                                                                                                            // 9
+	return user;                                                                                                 // 10
+}                                                                                                             // 11
+                                                                                                              // 12
+function getTime() {                                                                                          // 13
+        var now = new Date();                                                                                 // 14
+        return now;                                                                                           // 15
+}                                                                                                             // 16
+                                                                                                              // 17
+at = {                                                                                                        // 18
+	createLog: function(msg) {                                                                                   // 19
+		var tmpl = UI._templateInstance();                                                                          // 20
+		var uri = tmpl.firstNode.baseURI;                                                                           // 21
+		var tmplName = tmpl.view.name;                                                                              // 22
+		console.log(tmpl);                                                                                          // 23
+		console.log(tmplName);                                                                                      // 24
+		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName, "time": getTime()});        // 25
+	}                                                                                                            // 26
+}                                                                                                             // 27
+                                                                                                              // 28
+Router.onAfterAction(function auditRequests() {                                                               // 29
+	console.log(this);                                                                                           // 30
+	var method = this.method;                                                                                    // 31
+	var url = this.request.url;                                                                                  // 32
+	var path = this.route._path;                                                                                 // 33
+	var template = this.router._layout.name;                                                                     // 34
+	var user = getUser();                                                                                        // 35
+	console.log(method);                                                                                         // 36
+	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime()}); // 37
+}, {where: 'server'});                                                                                        // 38
+                                                                                                              // 39
+auditTrail = function(obj) {                                                                                  // 40
+	Audits.insert(obj);                                                                                          // 41
+}                                                                                                             // 42
+                                                                                                              // 43
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
 
@@ -50,23 +60,47 @@ auditTrail = function(obj) {                                                    
 
 (function () {
 
-//////////////////////////////////////////////////////////////////////////////////////
-//                                                                                  //
-// packages/valedaemon:audit-trail/reporting.js                                     //
-//                                                                                  //
-//////////////////////////////////////////////////////////////////////////////////////
-                                                                                    //
-if (Meteor.isClient) {                                                              // 1
-    Template.reporting.helpers({                                                    // 2
-        audits: function () {                                                       // 3
-            return Audits.find();                                                   // 4
-        }                                                                           // 5
-    });                                                                             // 6
-}                                                                                   // 7
-                                                                                    // 8
-                                                                                    // 9
-                                                                                    // 10
-                                                                                    // 11
-//////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                            //
+// packages/valedaemon:audit-trail/reporting.js                                                               //
+//                                                                                                            //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                              //
+if (Meteor.isClient) {                                                                                        // 1
+    Template.reporting.helpers({                                                                              // 2
+        audits: function () {                                                                                 // 3
+            return Audits.find();                                                                             // 4
+        }                                                                                                     // 5
+    });                                                                                                       // 6
+}                                                                                                             // 7
+                                                                                                              // 8
+                                                                                                              // 9
+                                                                                                              // 10
+                                                                                                              // 11
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function () {
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                            //
+// packages/valedaemon:audit-trail/router.js                                                                  //
+//                                                                                                            //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                              //
+console.log('router','route');                                                                                // 1
+                                                                                                              // 2
+Router.map(function() {                                                                                       // 3
+    this.route('reporting', {                                                                                 // 4
+        path: '/reporting'                                                                                    // 5
+    });                                                                                                       // 6
+});                                                                                                           // 7
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

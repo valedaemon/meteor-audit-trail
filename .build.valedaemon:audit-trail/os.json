@@ -25,11 +25,15 @@
       "constraint": "1.0.6"
     },
     {
+      "package": "iron:router"
+    },
+    {
       "package": "templating",
       "constraint": "1.0.9"
     },
     {
-      "package": "iron:router"
+      "package": "accounts-base",
+      "constraint": "1.1.2"
     }
   ],
   "resources": [
@@ -44,7 +48,7 @@
     {
       "type": "prelink",
       "file": "os/packages/valedaemon:audit-trail.js",
-      "length": 5230,
+      "length": 9532,
       "offset": 0,
       "servePath": "/packages/valedaemon:audit-trail.js",
       "sourceMap": "os/packages/valedaemon:audit-trail.js.map"
