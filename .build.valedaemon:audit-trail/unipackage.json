@@ -1,7 +1,7 @@
 {
   "name": "valedaemon:audit-trail",
   "summary": "A package devoted to providing audit methods to Meteor",
-  "version": "1.0.0+cd8f38f38557ba5f8890fe9e8981c3685dbfc8de",
+  "version": "1.0.0+a70b9ed8805d7184363e451a46d511ec35db3ea6",
   "earliestCompatibleVersion": "1.0.0",
   "isTest": false,
   "plugins": [],

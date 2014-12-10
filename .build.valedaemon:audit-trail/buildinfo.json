@@ -3,41 +3,45 @@
   "buildDependencies": {
     "os.json": {
       "files": {
-        "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/package.js": "e353c8ca2d5536e52ea105cfaff884367c926e0b",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/router.js": "2cc9e2dafcbf1d3708f7c9134dd8928a09fa573e"
       },
       "directories": []
     },
     "web.browser.json": {
       "files": {
-        "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/package.js": "e353c8ca2d5536e52ea105cfaff884367c926e0b",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/router.js": "2cc9e2dafcbf1d3708f7c9134dd8928a09fa573e"
       },
       "directories": []
     },
     "web.cordova.json": {
       "files": {
-        "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
-        "/home/vagrant/unified/packages/valedameon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1"
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/package.js": "e353c8ca2d5536e52ea105cfaff884367c926e0b",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/valedaemon:audit-trail.js": "e19396fbc91b8a4b10fa7cc59efebecb1deec387",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/reporting.html": "a1571cf3c0b4d7418c2c93b3fc9921ca7aad9f29",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/reporting.js": "e54b8082c3446f44625643d8c18eeb55ca4f0dc1",
+        "/home/vagrant/unified/packages/valedaemon:audit-trail/router.js": "2cc9e2dafcbf1d3708f7c9134dd8928a09fa573e"
       },
       "directories": []
     }
   },
   "pluginDependencies": {
     "files": {
-      "/home/vagrant/unified/packages/valedameon:audit-trail/package.js": "855c1623ee350dde69b44897dd36585621655aed"
+      "/home/vagrant/unified/packages/valedaemon:audit-trail/package.js": "e353c8ca2d5536e52ea105cfaff884367c926e0b"
     },
     "directories": []
   },
-  "source": "/home/vagrant/unified/packages/valedameon:audit-trail",
+  "source": "/home/vagrant/unified/packages/valedaemon:audit-trail",
   "buildTimeDirectDependencies": {
     "templating": "1.0.9",
+    "accounts-base": "1.1.2",
     "iron:router": "1.0.1",
     "minimongo": "1.0.5",
     "meteor": "1.1.3",
