@@ -3,35 +3,12 @@
         <h2>
             <i class="fa fa-area-chart"></i> Reporting
         </h2>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>
-                    Event
-                </th>
-                <th>
-                    User
-                </th>
-                <th>
-                    Page
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each audits}}
-                {{> audit}}
-            {{/each}}
-            </tbody>
-        </table>
-
+        {{> audits }}
     </div>
 </template>
 
-<template name="audit">
-    <tr>
-        <td>{{ event }}</td>
-        <td>{{ user }}</td>
-        <td>{{ page }}</td>
-    </tr>
+<template name="audits">
+    {{> pages}}
+    {{> pagesNav}}  <!--Bottom navigation-->
 </template>
+
