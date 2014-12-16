@@ -5,6 +5,10 @@
       "1.1.2"
     ],
     [
+      "alethes:pages",
+      "1.7.2"
+    ],
+    [
       "application-configuration",
       "1.0.3"
     ],
@@ -37,8 +41,12 @@
       "1.0.2"
     ],
     [
+      "coffeescript",
+      "1.0.4"
+    ],
+    [
       "ddp",
-      "1.0.11"
+      "1.0.12"
     ],
     [
       "deps",
@@ -130,7 +138,7 @@
     ],
     [
       "mongo",
-      "1.0.8"
+      "1.0.9"
     ],
     [
       "mongo-livedata",
@@ -167,6 +175,10 @@
     [
       "service-configuration",
       "1.0.2"
+    ],
+    [
+      "session",
+      "1.0.4"
     ],
     [
       "spacebars",
