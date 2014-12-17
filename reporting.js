@@ -8,7 +8,7 @@
     });
     //
 }*/
-var fields = ['event', 'user', 'page'];
+var fields = ['event', 'user', 'page', 'time'];
 var Pages = new Meteor.Pagination(Audits,{
     table: {
         class: "table",
