@@ -16,7 +16,7 @@ function getTime() {
 }
 
 at = {
-	createLog: function(msg) {
+	createLog: function(msg,userId) {
 		var tmpl, uri, tmplName;
 
         if (UI._templateInstance() !== null && UI._templateInstance() !== "undefined"){
@@ -30,7 +30,7 @@ at = {
 
 		console.log(tmpl);
 		console.log(tmplName);
-		auditTrail({"event": msg, "user": getUser(), "page": uri, "template": tmplName, "time": getTime()});
+		auditTrail({"event": msg, "user": userId || getUser(), "page": uri, "template": tmplName, "time": getTime()});
 	}
 }
 
