@@ -1,5 +1,6 @@
 Audits = new Mongo.Collection('audits');
 
+
 function getUser() {
 	var user;
 	if (!Meteor.user()) {
@@ -30,7 +31,7 @@ at = {
 
 		console.log(tmpl);
 		console.log(tmplName);
-		auditTrail({"event": msg, "user": userId || getUser(), "page": uri, "template": tmplName, "time": getTime()});
+		auditTrail({"event": msg, "user": userId || getUser(), "page": uri, "template": tmplName, "time": getTime(), "type":"action"});
 	}
 }
 
@@ -42,7 +43,7 @@ Router.onAfterAction(function auditRequests() {
 	var template = this.router._layout.name;
 	var user = getUser();
 	console.log(method);
-	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime()});
+	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime(), "type":"GET"});
 }, {where: 'server'});
 
 auditTrail = function(obj) {
