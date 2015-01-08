@@ -35,16 +35,16 @@ at = {
 	}
 }
 
-Router.onAfterAction(function auditRequests() {
+/*Router.onAfterAction(function auditRequests() {
 	console.log(this);
 	var method = this.method;
 	var url = this.request.url;
 	var path = this.route._path;
-	var template = this.router._layout.name;
+	var template = this.router._layout.name || 'foo';
 	var user = getUser();
 	console.log(method);
 	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime(), "type":"GET"});
-}, {where: 'server'});
+}, {where: 'server'});*/
 
 auditTrail = function(obj) {
 	Audits.insert(obj);
