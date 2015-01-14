@@ -1,4 +1,6 @@
-    var fields = ['event', 'user', 'page', 'time'];
+
+    var fields = ['event', 'name', 'time'];
+
     var Pages = new Meteor.Pagination(Audits, {
 	sort: {
 	    time: -1

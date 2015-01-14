@@ -17,7 +17,7 @@ function getTime() {
 }
 
 at = {
-	createLog: function(msg,userId) {
+	createLog: function(msg,userId,userProfile) {
 		var tmpl, uri, tmplName;
 
         if (UI._templateInstance() !== null && UI._templateInstance() !== "undefined"){
@@ -31,7 +31,7 @@ at = {
 
 		console.log(tmpl);
 		console.log(tmplName);
-		auditTrail({"event": msg, "user": userId || getUser(), "page": uri, "template": tmplName, "time": getTime(), "type":"action"});
+		auditTrail({"event": msg, "user": userId || getUser(), "name": userProfile.firstname + ' ' +  userProfile.lastname,  "page": uri, "template": tmplName, "time": getTime(), "type":"action"});
 	}
 }
 
@@ -42,8 +42,14 @@ Router.onAfterAction(function auditRequests() {
 	var path = this.route._path;
 	var template = this.router._layout.name;
 	var user = getUser();
-	console.log(method);
-	auditTrail({"event": "GET "+path, "user": getUser(), "page": url, "template": template, "time": getTime(), "type":"GET"});
+	var name;
+    var profile;
+	if(user !== 'guest'){
+        profile = Meteor.user().profile;
+	}
+	name = (profile && typeof profile === 'undefined') ? Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname : 'guest';
+	console.log('name',name);
+	auditTrail({"event": "GET "+path, "user": getUser(), "name":name, "page": url, "template": template, "time": getTime(), "type":"GET"});
 }, {where: 'server'});
 
 auditTrail = function(obj) {
