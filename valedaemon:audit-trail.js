@@ -52,15 +52,12 @@ Router.onAfterAction(function auditRequests() {
 	auditTrail({"event": "GET "+path, "user": getUser(), "name":name, "page": url, "template": template, "time": getTime(), "type":"GET"});
 }, {where: 'server'});
 
+Audits.allow({
+	insert: function() {
+		return true;
+	}
+});
+
 auditTrail = function(obj) {
-	Meteor.call('insertAudit', obj);
+	Audits.insert(obj);
 }
-
-if (Meteor.isServer) {
-	Meteor.methods({
-		'insertAudit': function(obj) {
-			return Audits.insert(obj);
-		}
-	});	
-}
-
