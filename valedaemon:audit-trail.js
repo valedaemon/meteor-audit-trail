@@ -1,4 +1,4 @@
-Audits = new Mongo.Collection('audits');
+Audits = new Meteor.Collection('audits');
 
 Audits.allow({
 	insert: function() {
