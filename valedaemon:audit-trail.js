@@ -56,8 +56,11 @@ auditTrail = function(obj) {
 	Meteor.call('insertAudit', obj);
 }
 
-Meteor.methods({
-	'insertAudit': function(obj) {
-		return Audits.insert(obj);
-	}
-});
+if (Meteor.isServer) {
+	Meteor.methods({
+		'insertAudit': function(obj) {
+			return Audits.insert(obj);
+		}
+	});	
+}
+
