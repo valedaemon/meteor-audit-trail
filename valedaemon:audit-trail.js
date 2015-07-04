@@ -1,11 +1,5 @@
 Audits = new Meteor.Collection('audits');
 
-Audits.allow({
-	insert: function() {
-		return true;
-	}
-});
-
 Meteor.subscribe('audits');
 
 Meteor.publish('audits', function() {
@@ -43,7 +37,7 @@ at = {
 
 		console.log(tmpl);
 		console.log(tmplName);
-		auditTrail({"event": msg, "user": userId || getUser(), "name": userProfile.firstname + ' ' +  userProfile.lastname,  "page": uri, "template": tmplName, "time": getTime(), "type":"action"});
+		Meteor.call('auditTrail', {"event": msg, "user": userId || getUser(), "name": userProfile.firstname + ' ' +  userProfile.lastname,  "page": uri, "template": tmplName, "time": getTime(), "type":"action"});
 	}
 }
 
@@ -61,9 +55,11 @@ Router.onAfterAction(function auditRequests() {
 	}
 	name = (profile && typeof profile === 'undefined') ? Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname : 'guest';
 	console.log('name',name);
-	auditTrail({"event": "GET "+path, "user": getUser(), "name":name, "page": url, "template": template, "time": getTime(), "type":"GET"});
+	Meteor.call('auditTrail', {"event": "GET "+path, "user": getUser(), "name":name, "page": url, "template": template, "time": getTime(), "type":"GET"});
 }, {where: 'server'});
 
-auditTrail = function(obj) {
-	Audits.insert(obj);
-}
+Meteor.methods({
+	auditTrail: function(obj) {
+		Audits.insert(obj);
+	}	
+});
