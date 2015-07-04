@@ -1,5 +1,17 @@
 Audits = new Mongo.Collection('audits');
 
+Audits.allow({
+	insert: function() {
+		return true;
+	}
+});
+
+Meteor.subscribe('audits');
+
+Meteor.publish('audits', function() {
+	return Audits.find();
+});
+
 
 function getUser() {
 	var user;
@@ -51,12 +63,6 @@ Router.onAfterAction(function auditRequests() {
 	console.log('name',name);
 	auditTrail({"event": "GET "+path, "user": getUser(), "name":name, "page": url, "template": template, "time": getTime(), "type":"GET"});
 }, {where: 'server'});
-
-Audits.allow({
-	insert: function() {
-		return true;
-	}
-});
 
 auditTrail = function(obj) {
 	Audits.insert(obj);
