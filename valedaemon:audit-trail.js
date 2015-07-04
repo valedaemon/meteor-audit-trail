@@ -53,5 +53,11 @@ Router.onAfterAction(function auditRequests() {
 }, {where: 'server'});
 
 auditTrail = function(obj) {
-	Audits.insert(obj);
+	Meteor.call('insertAudit', obj);
 }
+
+Meteor.methods({
+	'insertAudit': function(obj) {
+		return Audits.insert(obj);
+	}
+});
